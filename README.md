@@ -7,60 +7,91 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# uPress Blog
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A Laravel blog application that allows users to create posts, view external posts, and manage blog posts.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP 8.0 or higher
+- Composer
+- npm
+- MySQL
+- Laravel 8.x or higher
 
-## Learning Laravel
+NOTE: XAMPP can be used for local MySQL and PHP
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation
+### 1. Clone the Repository
+```
+git init
+git clone https://github.com/NivCohen01/uPressBlog.git
+```
+### 2. Install PHP and Laravel Dependencies
+ * Download composer through [https://getcomposer.org/]
+ * Run the following command to install the required PHP dependencies
+```
+composer install
+```
+### 3. Install NPM Dependencies
+ * Download nodejs through [[https://getcomposer.org/](https://nodejs.org/en/download/package-manager)]
+ * Run the following command to install the required Node.js dependencies:
+```
+npm install
+```
+### 4. Environment Setup
+open `.env` file and configure the following settings:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+APP_URL=http://localhost:8000
+```
+**NOTE**: These settings are set for local run (eg XAMPP), if you run it on a server, change the settings appropriatly.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 5. Generate Application Key
+Run the following command to generate an application key:
+```
+php artisan key:generate
+```
 
-## Laravel Sponsors
+### 6. Setup Database
+* Make sure you have MySQL running and pdo enabled.
+* Run the migrations to create the required tables in the database:
+  ```
+  php artisan migrate
+  ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 7. Enable PDO (if step 6 failed)
+Ensure that PDO is enabled in your PHP setup. In your php.ini file, ensure the following lines are enabled (uncommented):
+```
+extension=pdo_mysql
+extension=pdo
+```
+Return to step 6 (if it failed).
 
-### Premium Partners
+### 8. Start The Application
+To start the application locally, run the following command:
+```
+php artisan serve
+```
+### 9. Compile Frontend Assets
+To compile frontend assets, run the following command:
+```
+npm run watch
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Scheduling and Task Automation
+his project also includes a console command to fetch external posts and save them to the local database.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
+To run the console command manually:
+```
+php artisan fetch:external-posts
+```
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
