@@ -1,0 +1,39 @@
+.offcanvas {
+    width: 250px !important;
+}
+@media (min-width: 768px) {
+    .offcanvas {
+        width: 20vw;
+    }
+}
+
+.list-group-item {
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #252f4a;
+    cursor: pointer;
+}
+
+.list-group-item:hover, .list-group-item.active {
+    background-color: #f9f9f9;
+    color: #1b84ff;
+}
+
+.list-group-item i {
+    margin-right: 10px;
+}
+
+.list-group-item:hover i, .list-group-item.active i {
+    color: #1b84ff;
+}
+
+.navbar-toggler{
+    border: none;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
+}

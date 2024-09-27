@@ -1,0 +1,35 @@
+.offcanvas {
+    width: 250px !important;
+}
+@media (min-width: 768px) {
+    .offcanvas {
+        width: 20vw;
+    }
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #f9f9f9;
+    color: #1b84ff;
+}
+
+.nav-link i {
+    margin-right: 10px;
+}
+
+.nav-link:hover i, .nav-link.active i {
+    color: #1b84ff;
+}
+
+.navbar-toggler{
+    border: none;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+
+

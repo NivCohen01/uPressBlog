@@ -1,0 +1,26 @@
+.form-floating .form-control {
+    border-width: 0px 0px 1px 0px !important;
+    border-radius: 0px;
+}
+
+.form-floating .form-control:focus, 
+.form-floating .form-control:hover {
+    box-shadow: none !important;
+    border-color: #348cff !important;
+}
+
+.required-mark {
+    color: red;
+    margin-left: 5px;
+}
+
+.form-control.form-control-solid{
+    box-shadow: none;
+    background-color: #F9F9F9;
+    border-color: #F9F9F9;
+}
+
+.form-control.form-control-solid:focus{
+    background-color: #F1F1F4;
+    border-color: #F1F1F4;
+}
