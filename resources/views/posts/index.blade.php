@@ -11,7 +11,7 @@
                 <h2>
                     <a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
                 </h2>
-                <small>By {{ $post->user->name }} on {{ $post->created_at->format('d M, Y') }}</small>
+                <small>By {{ $post->user->name ?? 'External source' }} on {{ $post->created_at->format('d M, Y') }}</small>
             </div>
             <div class="card-body">
                 <!-- Render the post preview -->

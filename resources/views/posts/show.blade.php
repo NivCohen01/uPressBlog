@@ -4,11 +4,11 @@
 
 @section('content')
     <h1>{{ $post->title }}</h1>
-    <small>Author: {{ $post->user->name }}</small> <br>
+    <small>Author: {{ $post->user->name ?? "External source"}}</small> <br>
     <small>Created at: {{ $post->created_at->format('d-m-Y H:i') }}</small> <br>
     <small>Last modified: {{ $post->updated_at->format('d-m-Y H:i') }}</small> <br>
 
-    @if(Auth::check() && Auth::id() == $post->user_id)
+    @if(Auth::check() && (Auth::id() == $post->user_id || $post->user_id == NULL))
         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Edit Post</a>
 
         <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this post?');">

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('content');  // To store large JSON content
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Authenticated user
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps(); // To store the created_at and updated_at timestamps
         });
     }
