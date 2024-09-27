@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'My Laravel Blog')</title>
+    <title>@yield('title', 'uPress Blog')</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
@@ -24,18 +24,26 @@
                             Posts
                         </span>
                     </li>
+                    <li class="nav-item">
+                        <span class="nav-link {{ Request::is('/external-posts') ? 'active' : '' }}" data-href="{{ route('external-posts.index') }}">
+                            External Posts
+                        </span>
+                    </li>
                     @if(Auth::check())
                         <li class="nav-item">
                             <span class="nav-link {{ Request::is('posts/create') ? 'active' : '' }}" data-href="{{ route('posts.create') }}">
                                 Create Post
                             </span>
                         </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="nav-link btn btn-link" style="display:inline; cursor: pointer;">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
                     @endif
-                    <li class="nav-item">
-                        <span class="nav-link {{ Request::is('/external-posts') ? 'active' : '' }}" data-href="{{ route('external-posts.index') }}">
-                            External Posts
-                        </span>
-                    </li>
                     @if(!Auth::check())
                         <li class="nav-item">
                             <span class="nav-link" data-href="{{ route('login') }}">

@@ -31,3 +31,5 @@ Route::get('/posts/{id}', [PostsController::class, 'show'])->name('posts.show');
 
 Route::get('/external-posts', [ExternalPostsController::class, 'index'])->name('external-posts.index');
 Route::get('/external-posts/{id}', [ExternalPostsController::class, 'show'])->name('external-posts.show');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
