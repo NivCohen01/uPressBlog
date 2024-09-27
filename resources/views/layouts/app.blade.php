@@ -21,14 +21,33 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <span class="nav-link {{ Request::is('posts') ? 'active' : '' }}" data-href="{{ route('posts.index') }}">
-                            <i class="fa-solid fa-home"></i> Posts
+                            Posts
                         </span>
                     </li>
+                    @if(Auth::check())
+                        <li class="nav-item">
+                            <span class="nav-link {{ Request::is('posts/create') ? 'active' : '' }}" data-href="{{ route('posts.create') }}">
+                                Create Post
+                            </span>
+                        </li>
+                    @endif
                     <li class="nav-item">
-                        <span class="nav-link {{ Request::is('posts/create') ? 'active' : '' }}" data-href="{{ route('posts.create') }}">
-                            <i class="fa-solid fa-plus"></i> Create Post
+                        <span class="nav-link {{ Request::is('/external-posts') ? 'active' : '' }}" data-href="{{ route('external-posts.index') }}">
+                            External Posts
                         </span>
                     </li>
+                    @if(!Auth::check())
+                        <li class="nav-item">
+                            <span class="nav-link" data-href="{{ route('login') }}">
+                                Login
+                            </span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link" data-href="{{ route('register') }}">
+                                Register
+                            </span>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

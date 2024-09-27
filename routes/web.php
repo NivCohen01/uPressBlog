@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ExternalPostsController;
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
@@ -26,3 +27,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/posts/{id}', [PostsController::class, 'show'])->name('posts.show');
+
+
+Route::get('/external-posts', [ExternalPostsController::class, 'index'])->name('external-posts.index');
+Route::get('/external-posts/{id}', [ExternalPostsController::class, 'show'])->name('external-posts.show');

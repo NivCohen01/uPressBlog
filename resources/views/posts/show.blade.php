@@ -31,5 +31,8 @@
                 echo '<p>Unable to render post content.</p>';
             }
         @endphp
+        <div class="mt-4">
+            <a href="{{ route('posts.index') }}" class="btn btn-secondary">Back to Posts</a>
+        </div>
     </div>
 @endsection
